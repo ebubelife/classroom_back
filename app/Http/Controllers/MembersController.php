@@ -32,16 +32,18 @@ class MembersController extends Controller
   if ($user->save()) {
       // Return success response as JSON
       return response()->json([
+         'success' => true,
           'status' => 'success',
           'message' => 'User registered successfully!',
           'user' => $user,
-      ], 201);
+      ], 200);
   } else {
       // Return error response as JSON
       return response()->json([
+         'success' => false,
           'status' => 'error',
           'message' => 'Failed to register user.',
-      ], 500);
+      ], 400);
   }
 
    }
