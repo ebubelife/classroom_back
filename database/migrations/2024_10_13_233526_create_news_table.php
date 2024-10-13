@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText("body")->nullable();
             $table->text("featured_image")->nullable();
             $table->text("author")->nullable();
-            $table->bool("active")->default(true);
+            $table->boolean("active")->default(true);
             $table->timestamps();
         });
     }
