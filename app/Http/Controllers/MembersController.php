@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Members;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Mail\VerifyEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class MembersController extends Controller
@@ -30,6 +33,8 @@ class MembersController extends Controller
   $user->email_code = $randomNumber = rand(100000, 999999);
 
   if ($user->save()) {
+
+    Mail::to($user->email)->send(new VerifyEmail($randomNumber));
       // Return success response as JSON
       return response()->json([
          'success' => true,
