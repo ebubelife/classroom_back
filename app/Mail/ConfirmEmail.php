@@ -50,7 +50,7 @@ class ConfirmEmail extends Mailable
             view: 'emails.verify_email',
             with: [
                 'verificationCode' => $this->verificationCode,
-                'message' => $this->message,
+                'message_one' => $this->message,
 
                 
             ],
