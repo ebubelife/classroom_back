@@ -42,3 +42,10 @@ Route::controller(MembersController::class)->group(function(){
 
 
 });
+
+
+Route::controller(App\Http\Controllers\NewsController::class)->group(function(){
+
+    //get news
+    Route::get('/v1/news', 'get_news');
+});
