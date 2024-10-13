@@ -118,7 +118,7 @@ class MembersController extends Controller
                $user->save();
 
                return response()->json([
-                'successs' => true,
+                'success' => true,
                 'status' => 'success',
                 'message' => 'Email verified successfully!',
                 'user' => $user,
