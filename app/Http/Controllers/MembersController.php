@@ -6,7 +6,7 @@ use App\Models\Members;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\VerifyEmail;
+use App\Mail\ConfirmEmail;
 
 
 
@@ -18,7 +18,7 @@ class MembersController extends Controller
     public function test_email(){
 
         try {
-            Mail::to("ebubeemeka19@gmail.com")->send(new VerifyEmail("0900"));
+            Mail::to("ebubeemeka19@gmail.com")->send(new ConfirmEmail("0900"));
             return response()->json(['message' => 'Email sent successfully'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -47,7 +47,7 @@ class MembersController extends Controller
 
   if ($user->save()) {
 
-    Mail::to($user->email)->send(new VerifyEmail($randomNumber));
+    Mail::to($user->email)->send(new ConfirmEmail($randomNumber));
       // Return success response as JSON
       return response()->json([
          'success' => true,
