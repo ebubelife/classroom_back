@@ -36,5 +36,9 @@ Route::controller(MembersController::class)->group(function(){
     //send email
     Route::post('/v1/send_email', 'send_email');
 
+    //change password
+    Route::post('/v1/change_password', 'change_password');
+    
+
 
 });

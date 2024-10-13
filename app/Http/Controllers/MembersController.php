@@ -187,4 +187,46 @@ class MembersController extends Controller
         }
     }
 
+
+
+    public function change_password(Request $request)
+    {
+        // Validate the login request
+        $validated = $request->validate([
+            'user_id' => 'required',
+            'new_password' => 'required|string',
+           
+        ]);
+    
+        // Retrieve the user by email
+        $user = Members::find( $validated['user_id']);
+    
+        // Check if user exists and the password is correct
+        if ($user ) {
+            
+           
+            $user->password = $validated['new_password'];
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'status' => 'success',
+                'message' => 'Verification email sent',
+                'user' => $user,
+                // 'token' => $token, // If using token-based auth
+            ], 200);
+            
+           
+    
+           
+        } else {
+            // Return error response as JSON
+            return response()->json([
+                'success' => false,
+                'status' => 'error',
+                'message' => "User does not exist",
+            ], 401);
+        }
+    }
+
 }
