@@ -21,7 +21,7 @@
         .email-header {
             text-align: center;
             padding: 20px 0;
-            background-color: #4CAF50;
+            background-color: #00aff0;
             color: #ffffff;
             border-radius: 8px 8px 0 0;
         }
@@ -30,7 +30,7 @@
         }
         .verification-code {
             display: inline-block;
-            background-color: #4CAF50;
+            background-color: #00aff0;
             color: #ffffff;
             font-size: 24px;
             padding: 10px 20px;
@@ -57,7 +57,7 @@
             <p>If you did not register with our service, please ignore this email.</p>
         </div>
         <div class="email-footer">
-            <p>&copy; {{ date('Y') }} Your Company Name. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} ClassRoom Reality. All rights reserved.</p>
         </div>
     </div>
 </body>
