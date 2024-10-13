@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text("title")->nullable();
             $table->text("subtitle")->nullable();
-            $table->text("body")->nullable();
+            $table->longText("body")->nullable();
             $table->text("featured_image")->nullable();
             $table->text("author")->nullable();
             $table->bool("active")->default(true);
