@@ -125,6 +125,15 @@ class MembersController extends Controller
                 'user' => $user,
             ], 200);
 
+        }else{
+
+
+            return response()->json([
+                'success' => false,
+                'status' => 'Error',
+                'message' => 'Invalid code.',
+                'user' => $user,
+            ], 400);
         }
 
 
@@ -146,6 +155,8 @@ class MembersController extends Controller
         if ($user ) {
             
             $randomNumber = rand(1000, 9999);
+            $user->email_code = $randomNumber;
+            $user->save();
 
             try {
                 Mail::to($user->email)->send(new ConfirmEmail($randomNumber, "Hi, you have requested to reset your password. To reset your password, please use the following verification code:"));
