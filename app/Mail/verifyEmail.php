@@ -49,6 +49,7 @@ class VerifyEmail extends Mailable
             view: 'emails.verify_email',
             with: [
                 'verificationCode' => $this->verificationCode,
+
                 
             ],
         );
