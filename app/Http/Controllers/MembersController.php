@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Members;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Mail\VerifyEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\VerifyEmail;
+
 
 
 
@@ -15,8 +16,11 @@ class MembersController extends Controller
 
     public function test_email(){
 
-        if(Mail::to("ebubeemeka19@gmail.com")->send(new VerifyEmail("0900"))){
-            return true;
+        try {
+            Mail::to("ebubeemeka19@gmail.com")->send(new VerifyEmail("0900"));
+            return response()->json(['message' => 'Email sent successfully'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
 
     }
