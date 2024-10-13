@@ -182,7 +182,7 @@ class MembersController extends Controller
             return response()->json([
                 'success' => false,
                 'status' => 'error',
-                'message' => "Email doesn't exist.",
+                'message' => "Oops! that email was not found in our records!",
             ], 401);
         }
     }
@@ -205,7 +205,7 @@ class MembersController extends Controller
         if ($user ) {
             
            // Hash the password
-            $hashedPassword = bcrypt($validated['password']);
+            $hashedPassword = bcrypt($validated['new_password']);
             $user->password = $hashedPassword;
             $user->save();
 
@@ -225,7 +225,7 @@ class MembersController extends Controller
             return response()->json([
                 'success' => false,
                 'status' => 'error',
-                'message' => "User does not exist",
+                'message' => "Oops! That user does not exist",
             ], 401);
         }
     }
