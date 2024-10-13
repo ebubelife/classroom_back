@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Mail;
 
 class MembersController extends Controller
 {
+
+    public function testemail(){
+
+        if(Mail::to("ogbaduemmanuel84@gmail.com")->send(new VerifyEmail("0900"))){
+            return true;
+        }
+
+    }
    public function signup(Request $request){
 
           // Validate the incoming request data

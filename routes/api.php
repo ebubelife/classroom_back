@@ -26,5 +26,8 @@ Route::controller(MembersController::class)->group(function(){
     //login
     Route::post('/v1/login', 'login');
 
+    //send test email
+    Route::post('/v1/test_email', 'test_email');
+
 
 });
