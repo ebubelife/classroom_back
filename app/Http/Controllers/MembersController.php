@@ -11,6 +11,7 @@ use App\Mail\VerifyEmail;
 
 
 
+
 class MembersController extends Controller
 {
 
