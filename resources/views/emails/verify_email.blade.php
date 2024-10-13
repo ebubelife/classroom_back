@@ -52,7 +52,7 @@
             <h1>Verify Your Email</h1>
         </div>
         <div class="email-body">
-            <p>{{ message_one }}</p>
+            <p>{{ $message_one }}</p>
             <div class="verification-code">{{ $verificationCode }}</div>
             <p>If you did not register with our service, please ignore this email.</p>
         </div>
