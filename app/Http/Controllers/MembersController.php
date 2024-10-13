@@ -130,4 +130,50 @@ class MembersController extends Controller
 
     }
 
+
+    public function send_email(Request $request)
+    {
+        // Validate the login request
+        $validated = $request->validate([
+            'email' => 'required|email',
+           
+        ]);
+    
+        // Retrieve the user by email
+        $user = Members::where('email', $validated['email'])->first();
+    
+        // Check if user exists and the password is correct
+        if ($user ) {
+            
+            $randomNumber = rand(1000, 9999);
+
+            try {
+                Mail::to("ebubeemeka19@gmail.com")->send(new ConfirmEmail($randomNumber));
+                // Return success response as JSON
+            return response()->json([
+                'success' => true,
+                'status' => 'success',
+                'message' => 'Verification email sent',
+                'user' => $user,
+                // 'token' => $token, // If using token-based auth
+            ], 200);
+            } catch (\Exception $e) {
+                return response()->json([ 'success' => false,
+                'status' => 'error','message' => $e->getMessage()], 400);
+            }
+
+            
+           
+    
+           
+        } else {
+            // Return error response as JSON
+            return response()->json([
+                'success' => false,
+                'status' => 'error',
+                'message' => "Email doesn't exist.",
+            ], 400);
+        }
+    }
+
 }
