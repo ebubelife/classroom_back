@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('news_update', function (Blueprint $table) {
             $table->id();
             $table->text("title")->nullable();
             $table->text("subtitle")->nullable();
