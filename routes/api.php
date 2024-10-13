@@ -30,5 +30,8 @@ Route::controller(MembersController::class)->group(function(){
     //send test email
     Route::post('/v1/test_email', 'test_email');
 
+    //verify email
+    Route::post('/v1/verify_email', 'verify_email');
+
 
 });

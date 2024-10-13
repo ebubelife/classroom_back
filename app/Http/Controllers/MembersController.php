@@ -99,4 +99,34 @@ class MembersController extends Controller
     }
 }
 
+    public function verify_email(Request $request){
+
+            // Validate the login request
+        $validated = $request->validate([
+            'user_id' => 'required',
+            'code' => 'required|string',
+        ]);
+
+         // Retrieve the user by email
+        $user = Members::find($validated['user_id']);
+
+        if($user->email_code == $validated['code']){
+
+               // Update the user's email_verified_at field
+
+               $user->email_verified = true;
+               $user->save();
+
+               return response()->json([
+                'successs' => true,
+                'status' => 'success',
+                'message' => 'Email verified successfully!',
+                'user' => $user,
+            ], 200);
+
+        }
+
+
+    }
+
 }
