@@ -85,6 +85,7 @@ class MembersController extends Controller
 
         // Return success response as JSON
         return response()->json([
+            'success' => true,
             'status' => 'success',
             'message' => 'Login successful!',
             'user' => $user,
