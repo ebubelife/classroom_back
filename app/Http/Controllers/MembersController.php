@@ -43,7 +43,7 @@ class MembersController extends Controller
   $user->email = $validated['email'];
   $user->password = $hashedPassword;
 
-  $user->email_code = $randomNumber = rand(100000, 999999);
+  $user->email_code = $randomNumber = rand(1000, 9999);
 
   if ($user->save()) {
 
