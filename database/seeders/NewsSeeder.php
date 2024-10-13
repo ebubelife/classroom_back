@@ -12,7 +12,7 @@ class NewsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('news')->insert([
+        DB::table('news_update')->insert([
             [
                 'title' => 'Post-UTME Screening Dates Announced for Top Nigerian Universities',
                 'subtitle' => 'Universities have released screening schedules for upcoming admissions.',
