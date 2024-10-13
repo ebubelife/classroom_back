@@ -83,6 +83,11 @@ class MembersController extends Controller
         // Generate a token (optional, if using token-based authentication like JWT or Sanctum)
         // Example: $token = $user->createToken('auth_token')->plainTextToken;
 
+        //save last login date
+
+        $user->last_login = $date = now()->format('Y-m-d\TH:i:s.u\Z');
+        $user->save();
+
         // Return success response as JSON
         return response()->json([
             'success' => true,

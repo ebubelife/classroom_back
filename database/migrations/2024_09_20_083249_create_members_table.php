@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("last_login")->nullable();
             $table->string("email_code")->nullable();
             $table->boolean("email_verified")->default(false);
+            $table->string("image")->nullable();
             $table->timestamps();
         });
     }
