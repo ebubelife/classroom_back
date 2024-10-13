@@ -18,7 +18,7 @@ class MembersController extends Controller
     public function test_email(){
 
         try {
-            Mail::to("ebubeemeka19@gmail.com")->send(new ConfirmEmail("0900"));
+            Mail::to("ebubeemeka19@gmail.com")->send(new ConfirmEmail("0900", "Thank you for registering with us! To complete your registration, please verify your email address using the code below:"));
             return response()->json(['message' => 'Email sent successfully'], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -47,7 +47,7 @@ class MembersController extends Controller
 
   if ($user->save()) {
 
-    Mail::to($user->email)->send(new ConfirmEmail($randomNumber));
+    Mail::to($user->email)->send(new ConfirmEmail($randomNumber, "Thank you for registering with us! To complete your registration, please verify your email address using the code below:"));
       // Return success response as JSON
       return response()->json([
          'success' => true,
@@ -148,7 +148,7 @@ class MembersController extends Controller
             $randomNumber = rand(1000, 9999);
 
             try {
-                Mail::to("ebubeemeka19@gmail.com")->send(new ConfirmEmail($randomNumber));
+                Mail::to($user->email)->send(new ConfirmEmail($randomNumber, "Hi, you have requested to reset your password. To reset your password, please use the following verification code:"));
                 // Return success response as JSON
             return response()->json([
                 'success' => true,
@@ -159,7 +159,7 @@ class MembersController extends Controller
             ], 200);
             } catch (\Exception $e) {
                 return response()->json([ 'success' => false,
-                'status' => 'error','message' => $e->getMessage()], 400);
+                'status' => 'error','message' => $e->getMessage()], 401);
             }
 
             
@@ -172,7 +172,7 @@ class MembersController extends Controller
                 'success' => false,
                 'status' => 'error',
                 'message' => "Email doesn't exist.",
-            ], 400);
+            ], 401);
         }
     }
 

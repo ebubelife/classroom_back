@@ -19,15 +19,16 @@ class ConfirmEmail extends Mailable
      * @var string
      */
     public $verificationCode;
+    public $message;
 
     /**
      * Create a new message instance.
      *
      * @param string $verificationCode
      */
-    public function __construct(string $verificationCode)
+    public function __construct(string $verificationCode, string $message)
     {
-        $this->verificationCode = $verificationCode;
+        $this->verificationCode = $verificationCode; $this->message = $message;
     }
 
     /**
@@ -49,6 +50,7 @@ class ConfirmEmail extends Mailable
             view: 'emails.verify_email',
             with: [
                 'verificationCode' => $this->verificationCode,
+                'message' => $this->message,
 
                 
             ],
