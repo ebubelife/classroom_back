@@ -204,8 +204,9 @@ class MembersController extends Controller
         // Check if user exists and the password is correct
         if ($user ) {
             
-           
-            $user->password = $validated['new_password'];
+           // Hash the password
+            $hashedPassword = bcrypt($validated['password']);
+            $user->password = $hashedPassword;
             $user->save();
 
             return response()->json([
