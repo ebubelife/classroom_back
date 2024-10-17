@@ -19,6 +19,7 @@ class AdminMainController extends Controller
     {
        // Validate the login form data
     $request->validate([
+        
         'username' => 'required|string',
         'password' => 'required|string',
     ]);
