@@ -31,6 +31,7 @@ Route::post('/login_admin_user', [AdminMainController::class, 'login_admin_user'
 Route::middleware(['admin.auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/dashboard/subjects', [AdminMainController::class, 'subjects'])->name('admin.dashboard.subjects');
+    Route::get('/admin/dashboard/subjects/add', [AdminMainController::class, 'add_subjects'])->name('admin.dashboard.subjects.add');
     
     
 

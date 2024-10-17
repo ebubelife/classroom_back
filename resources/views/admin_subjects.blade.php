@@ -17,6 +17,8 @@
                 </span>
             </div>
         </div>
+
+        <a href=" {{ route('admin.dashboard.subjects.add') }}" class="bg-green-500 text-white hover:shadow-md hover:rounded-md md:p-0 p-4 md:rounded-0 rounded-md grid place-content-center md:shadow-0 shadow-md">Add New Subject +</a>
        
        
     </div>
@@ -25,7 +27,7 @@
 
     <!-- subject section table-->
 
-    <div class="max-w-3xl mx-auto shadow-lg rounded-md overflow-hidden mt-8">
+    <div class="max-w-3xl mx-auto shadow-lg rounded-md md:overflow-hidden overflow-scroll mt-8">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-800 text-white">
                 <tr>
