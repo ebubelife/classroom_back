@@ -14,6 +14,11 @@ class AdminMainController extends Controller
         return view('admin_dashboard');
     }
 
+    public function subjects()
+    {
+        return view('admin_subjects');
+    }
+
 
     public function login_admin_user(Request $request)
     {
