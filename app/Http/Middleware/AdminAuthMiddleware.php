@@ -13,10 +13,13 @@ class AdminAuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // Replace this with your custom authentication logic
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
-            return redirect('/admin/login')->with('error', 'You are not authorized to access this page.');
-        }
+       
+       // Check if 'admin_data' exists in the session
+       if (!session()->has('admin_data')) {
+        // Redirect to the login page if 'admin_data' session does not exist
+        return redirect('/admin/login')->with('error', 'You need to log in to access the admin dashboard.');
+    }
+
 
         return $next($request);
     }

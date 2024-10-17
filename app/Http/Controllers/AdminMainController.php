@@ -19,16 +19,33 @@ class AdminMainController extends Controller
     {
        // Validate the login form data
     $request->validate([
-
+        
         'username' => 'required|string',
         'password' => 'required|string',
     ]);
 
-    if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
-    return redirect()->route('admin.dashboard');
-} else {
-    return redirect()->back()->withErrors(['login' => 'Invalid username or password.']);
-}
+    // Find the admin user by username
+    $adminUser = AdminMain::where('username', $request->username)->first();
+
+    // Check if the user exists and the password is correct
+    if ($adminUser && Hash::check($request->password, $adminUser->password)) {
+        // Log in the admin user
+      // Define the array to save in the session
+    $adminData = [
+        'id' => $adminUser->id,
+        'name' => $adminUser->name,
+        'username' => $adminUser->username,
+        'role' => 'admin',  // Assuming a role value, add more keys if needed
+    ];
+
+    // Store the array in the session
+    session(['admin_data' => $adminData]);
+        // Redirect to the dashboard
+        return redirect()->route('admin.dashboard');
+    } else {
+        // Redirect back with an error message
+        return redirect()->back()->withErrors(['login' => 'Invalid username or password.']);
+    }
     }
 
 }

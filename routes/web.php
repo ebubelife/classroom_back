@@ -28,7 +28,7 @@ Route::post('/login_admin_user', [AdminMainController::class, 'login_admin_user'
 
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['admin.auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');
     
     
