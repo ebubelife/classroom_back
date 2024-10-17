@@ -23,7 +23,7 @@ Route::get('/admin/login', function () {
 });
 
 
-Route::get('/login_admin_user', [AdminMainController::class, 'login_admin_user'])->name('admin.login_admin_user');
+Route::post('/login_admin_user', [AdminMainController::class, 'login_admin_user'])->name('admin.login_admin_user');
 
 
 

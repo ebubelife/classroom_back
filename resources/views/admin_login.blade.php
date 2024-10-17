@@ -5,7 +5,7 @@
   <div class="w-full max-w-md p-8 space-y-3 rounded-lg shadow-md bg-white">
   <header class="p-4 bg-blue-600 text-white">
     <h1 class="text-3xl font-bold underline">
-      Admin Panel Header
+      Classroom Admin
     </h1>
   </header>
     <h1 class="text-2xl font-bold text-center">Admin Login</h1>
