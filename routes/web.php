@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminMainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/admin/login', function () {
+    return view('admin_login');
+});
+
+
+Route::get('/login_admin_user', [AdminMainController::class, 'login_admin_user'])->name('admin.login_admin_user');
+
+
+
+
+Route::middleware(['admin.auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');
+    
+    
+
+  
 });
