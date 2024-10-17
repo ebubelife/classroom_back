@@ -23,7 +23,7 @@
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-bold">Admin Menu</h1>
             <button onclick="toggleMenu()" class="lg:hidden text-white focus:outline-none">
-                ✖️
+                ADDD
             </button>
         </div>
         <nav class="flex-1">
