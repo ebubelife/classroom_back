@@ -20,7 +20,7 @@
    <!-- Sidebar (Slide-in Menu) -->
    <div id="sidebar" class="slide-in-menu fixed inset-y-0 left-0 w-64 bg-blue-900 text-white p-4 flex flex-col z-30">
         <div class="flex items-center justify-between mb-4">
-            <h1 class="text-2xl font-bold">Admin</h1>
+            <h1 class="text-2xl font-bold">Admin - Classroom</h1>
             <button onclick="toggleMenu()" class="text-white text-2xl  focus:outline-none">
                 <span class="text-white">✖️</span> 
             </button>
@@ -33,17 +33,18 @@
             <span id="toggle-icon" class="ml-2 transform transition-transform">&#9660;</span> <!-- Down arrow icon -->
         </button>
         <div id="classes-submenu" class="ml-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <a href="{{ route('admin.dashboard.subjects') }}" class="block py-2 px-4 rounded hover:bg-blue-600">Subjects</a>
-            <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Year</a>
-            <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Terms</a>
-            <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Video</a>
+              <a href="{{ route('admin.dashboard.videos') }}" class="block py-2 px-4 rounded hover:bg-blue-600">Videos</a>
             <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Audio</a>
             <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Docs</a>
         </div>
     </div>
+
+    <a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Users</a>
     
     <!-- Other Main Items -->
-    <a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Syllabus</a>
+    <a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">Syllabuses</a>
+
+
     <a href="#" class="block py-2 px-4 rounded hover:bg-blue-700">News Updates</a>
 </nav>
 

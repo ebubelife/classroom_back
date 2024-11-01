@@ -18,27 +18,10 @@ class AdminMainController extends Controller
     {
         return view('admin_subjects');
     }
+   
+   
 
-    public function add_subjects(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            // Validate the input
-            $request->validate([
-                'subject' => 'required|string|max:255',
-            ]);
-    
-            // Store the subject (assuming you have a Subject model)
-           /* Subject::create([
-                'name' => $request->input('subject'),
-            ]);*/
-    
-            // Redirect back with a success message
-            return redirect()->route('admin.subjects.add')->with('success', 'Subject added successfully!');
-        }
-    
-        // If the request method is GET, simply display the form
-        return view('admin_subjects_add');
-    }
+   
 
 
     public function login_admin_user(Request $request)

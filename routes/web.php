@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminMainController;
+use App\Http\Controllers\VideosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +30,10 @@ Route::post('/login_admin_user', [AdminMainController::class, 'login_admin_user'
 
 
 Route::middleware(['admin.auth'])->group(function () {
-    Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/dashboard/subjects', [AdminMainController::class, 'subjects'])->name('admin.dashboard.subjects');
-    Route::get('/admin/dashboard/subjects/add', [AdminMainController::class, 'add_subjects'])->name('admin.dashboard.subjects.add');
+    Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');   
+    Route::get('/admin/dashboard/videos', [VideosController::class, 'videos'])->name('admin.dashboard.videos');
+    Route::get('/admin/dashboard/videos/add', [VideosController::class, 'add_videos'])->name('admin.dashboard.videos.add');
+    Route::post('/admin/dashboard/videos/add', [VideosController::class, 'add_videos']);
     
-    
-
   
 });
