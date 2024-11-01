@@ -24,12 +24,13 @@
         <h2 class="text-2xl font-semibold mb-6">Upload Video</h2>
 
         <!-- Video Type Selection -->
-      <div class="mb-4 hidden">
+      <div class="mb-4 ">
             <label for="videoType" class="block text-sm font-medium text-gray-300 mt-6">Select Video Source:</label>
             <select id="videoType" class="w-full p-3 bg-gray-700 text-gray-200 focus:outline-none rounded-md appearance-none styled-select" onchange="toggleUploadMethod()" name="video_source" required>
                 <option value="" disabled selected hidden>Choose a source...</option>
-                <option value="youtube" selected>YouTube</option>
-                <option value="local">Local Upload</option>
+                <option value="local" selected>Local Upload</option>
+                <option value="youtube">YouTube</option>
+               
             </select>
         </div>
 
@@ -93,7 +94,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const videoType = 'youtube';
+        const videoType = 'local';
         const youtubeField = document.getElementById('youtubeField');
         const localUploadField = document.getElementById('localUploadField');
 
