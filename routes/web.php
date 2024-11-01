@@ -31,6 +31,7 @@ Route::post('/login_admin_user', [AdminMainController::class, 'login_admin_user'
 
 Route::middleware(['admin.auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminMainController::class, 'dashboard'])->name('admin.dashboard');   
+    Route::get('/admin/dashboard/users/all', [AdminMainController::class, 'get_users'])->name('admin.dashboard.users.all');   
     Route::get('/admin/dashboard/videos', [VideosController::class, 'videos'])->name('admin.dashboard.videos');
     Route::get('/admin/dashboard/videos/add', [VideosController::class, 'add_videos'])->name('admin.dashboard.videos.add');
     Route::post('/admin/dashboard/videos/add', [VideosController::class, 'add_videos']);

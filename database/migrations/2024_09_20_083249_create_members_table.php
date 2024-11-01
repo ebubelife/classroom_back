@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->nullable();
             $table->string("email")->nullable();
+            $table->string("phone")->nullable();
             $table->text("password")->nullable();
             $table->string("plan")->default("FREEMIUM");
             $table->string("last_login")->nullable();

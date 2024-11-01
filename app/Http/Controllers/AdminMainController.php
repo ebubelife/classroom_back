@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminMain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Members;
 use Illuminate\Support\Facades\Hash;
 
 class AdminMainController extends Controller
@@ -56,5 +57,13 @@ class AdminMainController extends Controller
         return redirect()->back()->withErrors(['login' => 'Invalid username or password.']);
     }
     }
+
+    public function get_users(Request $request)
+{
+
+      $users = Members::all();
+      return view('admin_users', ['users' => $users, 'count' => $users->count()]);
+      
+}
 
 }
