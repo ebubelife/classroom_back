@@ -47,23 +47,12 @@
         <label for="subjects">Select Subject:</label><br>
         <select id="subjects" class="styled-select" name="subject" required>
             <option value="" disabled selected hidden>Choose a subject...</option>
-            <option value="english">English Language</option>
-            <option value="mathematics">Mathematics</option>
-            <option value="biology">Biology</option>
-            <option value="chemistry">Chemistry</option>
-            <option value="physics">Physics</option>
-            <option value="economics">Economics</option>
-            <option value="government">Government</option>
-            <option value="literature">Literature in English</option>
-            <option value="commerce">Commerce</option>
-            <option value="accounting">Financial Accounting</option>
-            <option value="geography">Geography</option>
-            <option value="agriculture">Agricultural Science</option>
-            <option value="crs">Christian Religious Studies</option>
-            <option value="irs">Islamic Religious Studies</option>
-            <option value="french">French Language</option>
-            <option value="history">History</option>
-            <option value="civic">Civic Education</option>
+
+            @foreach($subjects as $subject)
+            <option value="{{ $subject->subject }}">{{ $subject->subject }}</option>
+           
+
+            @endforeach
         </select>
         <br><br>
 

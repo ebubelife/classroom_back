@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Videos;
+use App\Models\Subjects;
 use Illuminate\Http\Request;
 
 class VideosController extends Controller
@@ -57,9 +58,10 @@ class VideosController extends Controller
 
     }else{
 
-
+        $subjects = Subjects::all();
+    
     // If the request method is GET, simply display the form
-    return view('admin_videos_add');
+    return view('admin_videos_add', ['subjects' => $subjects]);
     }
 
 
