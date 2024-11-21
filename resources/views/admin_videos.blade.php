@@ -66,7 +66,7 @@
                     {{ $video->title }}
                     </td>
                     <td class="px-6 py-4 text-sm text-blue-700 underline">
-                        <a href="{{ asset($video->url) }}" target="_blank">Watch Now</a>
+                        <a href="{{ Storage::url($video->url) }}" target="_blank">Watch Now</a>
                     </td>
 
                     <td class="px-6 py-4 text-sm ">
