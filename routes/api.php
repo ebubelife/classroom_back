@@ -52,7 +52,7 @@ Route::controller(App\Http\Controllers\NewsController::class)->group(function(){
     Route::get('/v1/news', 'get_news');
 });
 
-Route::get('/videos/{subject}/{class}/{exam}', function ($subject, $class, $exam) {
+Route::get('v1/videos/{subject}/{class}/{exam}', function ($subject, $class, $exam) {
 
     $videos = Videos::where('subject', $subject)->where('class',$class)->where('exam', $exam)->get();
     return response()->json(["data"=>$videos, "success"=>true, "status"=>"success"],200);
