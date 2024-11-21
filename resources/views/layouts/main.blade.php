@@ -34,8 +34,7 @@
         </button>
         <div id="classes-submenu" class="ml-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
               <a href="{{ route('admin.dashboard.videos') }}" class="block py-2 px-4 rounded hover:bg-blue-600">Videos</a>
-            <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Audio</a>
-            <a href="#" class="block py-2 px-4 rounded hover:bg-blue-600">Docs</a>
+           
         </div>
     </div>
 

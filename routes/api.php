@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MembersController;
 
+use App\Models\Videos;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -49,3 +51,16 @@ Route::controller(App\Http\Controllers\NewsController::class)->group(function(){
     //get news
     Route::get('/v1/news', 'get_news');
 });
+
+Route::get('/videos/{subject}/{class}/{exam}', function ($subject, $class, $exam) {
+
+    $videos = Videos::where('subject', $subject)->where('class',$class)->where('exam', $exam)->get();
+    return response()->json(["data"=>$videos, "success"=>true, "status"=>"success"],200);
+
+
+   
+});
+
+
+
+    
